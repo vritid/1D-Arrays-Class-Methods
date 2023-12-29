@@ -1,0 +1,57 @@
+import java.util.Scanner;
+public class NumberGuesser {
+//Name: Vriti Dahiya
+//Date: June 16, 2023
+//Purpose: To write a program that simulates a number guessing game.
+
+//Applies to all the class methods
+public static Scanner input = new Scanner(System.in);
+public static void main(String[] args) {
+
+// Method Call for the game
+playGame();
+}// main
+//-----------------------------------------------------------------------------
+---------------------------------------------------//
+// Class Method: The Game//
+public static void playGame() {
+//Randomize the number
+int randomNumber = (int) (Math.random() * 10) + 1;
+//Create an array for the possible numbers
+int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+//Calls upon the random chosen number from the array
+int answer = numbers[randomNumber];
+//Set the max attempts
+int maxAttempts = 3;
+//Introduction
+System.out.println("Welcome to the Number Guessing Game!\n");
+System.out.println("Rules: I'm thinking of a number between 1 and 10
+(randomizes each round).");
+System.out.println("You have " + maxAttempts + " attempts to guess the
+number.\n");
+//Prompt for user to enter their guess
+for (int attempt = 1; attempt <= maxAttempts; attempt++) {
+System.out.print("Attempt " + attempt + ": Enter your guess: ");
+int guess = input.nextInt();
+
+//Check if the guess is correct
+if (guess == answer) {
+System.out.println("Congratulations! You guessed the correct number.");
+return;
+} //if
+// Check if the guess is lower than the answer
+else if (guess < answer) {
+System.out.println("Incorrect guess. The number is higher.");
+}//else if
+//For if the guess if higher than the answer
+else {
+System.out.println("Incorrect guess. The number is lower.");
+}//else
+}//for
+//Once user runs out of attempts
+System.out.println("Sorry, you ran out of attempts. The number was: " +
+answer);
+}//playGame
+//-----------------------------------------------------------------------------
+---------------------------------------------------//
+}// Number Guesser
